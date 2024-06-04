@@ -24,12 +24,13 @@ AF_DCMotor motor4(4);
 
 rgb_lcd lcd;
 Servo servo;
-int ligneGauche = 7;
-int ligneDroite = 8;
+int ligneGauche = 47;
+int ligneDroite = 46;
 
-int CapteurChambre = 9;
+int CapteurChambre1 = 42;
+int CapteurChambre2 = 43;
 
-int speakerPin = 2; // pin a changer
+int speakerPin = 52; // pin a changer
 
 
 const int colorR = 255;
@@ -40,8 +41,11 @@ const int colorB = 0;
 bool waitForValidation = false;
 char roomNumber = -1; 
 
-const int triggerPin = 4; 
-const int echoPin    = 5; 
+const int triggerPin = 50; 
+const int echoPin    = 51; 
+//ca c'est pour le suivi 
+int d1 = 0;
+int d2 = 0; 
 
 int i = 0;
 int z = 0;
@@ -51,13 +55,13 @@ void setup() {
 
    lcd.begin(16, 2);
    lcd.setRGB(colorR, colorG, colorB);
-   servo.attach(7); // pin a changer 
+   servo.attach(49); // pin a changer 
 
    lcd.setCursor(0, 0);
 
    lcd.display();
    pinMode (speakerPin, OUTPUT);
-   pinMode (CapteurChambre, INPUT);
+   pinMode (CapteurChambre1, INPUT);
    pinMode(ligneDroite,INPUT);  
    pinMode(ligneGauche,INPUT);
   
@@ -76,23 +80,29 @@ void setup() {
    motor3.run(RELEASE);
    motor4.setSpeed(255);
    motor4.run(RELEASE);
+// suivi ligne
+    pinMode(47, INPUT);  
+    pinMode(46, INPUT);  
+    // compteur chambre 
+ 
 
    Serial.println("== Debut du programme ==");
 
 }
 
 void loop() {
-  
-  printData();
+  obstacle();
+  selection();
   if (waitForValidation == true) {
     delay (5000);
     lcd.clear();
   }else{
-    obstacle();
+    parcours(); 
+    
   }
   servo.write(0);
-  detectionChambre(i,z);
-  int val = digitalRead(CapteurChambre);
+  //detection(i,z);
+  int val = digitalRead(CapteurChambre1);
   if (val==LOW){
     z = z + 1;
   }
