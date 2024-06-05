@@ -83,11 +83,8 @@ void setup() {
 // suivi ligne
     pinMode(47, INPUT);  
     pinMode(46, INPUT);  
-    // compteur chambre 
- 
-
+    // compteur chambre
    Serial.println("== Debut du programme ==");
-
 }
 
 void loop() {
