@@ -54,17 +54,20 @@ void selection(){
           waitForValidation = false;
           delay(5000);
           lcd.clear();
+          parcours();
         } else {
+          lcd.clear();
           lcd.print("Pas de demande");
           lcd.setCursor(0, 1);
           lcd.print("a valider");
+          arreter();
         }
         
         break;
         
       default:
         if(waitForValidation == false){
-          lcd.print("choisi chambre");
+          lcd.print("choisir chambre");
           roomNumber = -1;
           
           break;
