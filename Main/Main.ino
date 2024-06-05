@@ -34,7 +34,7 @@ int speakerPin = 52; // pin a changer
 
 
 const int colorR = 255;
-const int colorG = 215;
+const int colorG = 0;
 const int colorB = 0;
 
 
@@ -49,14 +49,14 @@ int d2 = 0;
 
 int i = 0;
 int z = 0;
+int w = 0;
 
 long duration, distance;
 void setup() {
 
    lcd.begin(16, 2);
    lcd.setRGB(colorR, colorG, colorB);
-   servo.attach(49); // pin a changer 
-
+   servo.attach(49); 
    lcd.setCursor(0, 0);
 
    lcd.display();
@@ -83,28 +83,23 @@ void setup() {
 // suivi ligne
     pinMode(47, INPUT);  
     pinMode(46, INPUT);  
-    // compteur chambre 
- 
-
+    // compteur chambre
    Serial.println("== Debut du programme ==");
-
 }
 
 void loop() {
+  arreter();
   obstacle();
   selection();
+  delay(200);
   if (waitForValidation == true) {
     delay (5000);
     lcd.clear();
   }else{
     parcours(); 
+    obstacle();
     
   }
   servo.write(0);
-  //detection(i,z);
-  int val = digitalRead(CapteurChambre1);
-  if (val==LOW){
-    z = z + 1;
-  }
+ }
   
-}

@@ -6,7 +6,7 @@ void obstacle() {
   digitalWrite(triggerPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
-// RÃ©ception de l'Ã©cho
+//réception de l'echo
   pinMode(echoPin, INPUT);
   duration = pulseIn(echoPin, HIGH);
 // Calcul de la distance
@@ -18,7 +18,7 @@ void obstacle() {
       delay(500);
       lcd.clear();
     } else if (distance <=30){
-      //Ã©cran
+      //écran
       Serial.print("distance = ");
       Serial.print(distance);
       Serial.println(" cm");
@@ -27,12 +27,10 @@ void obstacle() {
       lcd.println(" cm        ");
       buzzer();
       delay(500);
-      
-      lcd.clear();
-      
-      
+      lcd.clear();  
+
      } else if(distance <= 60) {
-      //Ã©cran
+      //écran
       Serial.print("distance = ");
       Serial.print(distance);
       Serial.println(" cm");
@@ -43,8 +41,7 @@ void obstacle() {
       lcd.clear();
        
      } else if(distance <= 120) {
-
-      //Ã©cran
+      //écran
       Serial.print("distance = ");
       Serial.print(distance);
       Serial.println(" cm");
@@ -65,6 +62,4 @@ void obstacle() {
       lcd.clear();
      
    }
-   
-    delay(500); ;
 }

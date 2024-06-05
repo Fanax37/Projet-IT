@@ -2,8 +2,7 @@ void selection(){
     while(TRANS_SERIAL.available()) {
         uint8_t data = TRANS_SERIAL.read(); 
 
-    switch(data){
-      
+    switch(data){ 
       case 0xE1: // 1
         roomNumber = 1;
         Serial.println("ca marche");
@@ -54,21 +53,21 @@ void selection(){
           waitForValidation = false;
           delay(5000);
           lcd.clear();
+          parcours();
         } else {
+          lcd.clear();
           lcd.print("Pas de demande");
           lcd.setCursor(0, 1);
           lcd.print("a valider");
-        }
-        
-        break;
-        
+          arreter();
+        } 
+        break;  
+
       default:
         if(waitForValidation == false){
-          lcd.print("choisi chambre");
+          lcd.print("choisir chambre");
           roomNumber = -1;
-          
           break;
-           
         }
     }
   }
