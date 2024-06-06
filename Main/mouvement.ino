@@ -23,9 +23,9 @@ void Vgauche(){
   motor1.setSpeed(255);
   motor2.run(FORWARD);
   motor2.setSpeed(255);
-  motor3.run(BACKWARD);
+  motor3.run(FORWARD);
   motor3.setSpeed(255);
-  motor4.run(FORWARD);
+  motor4.run(BACKWARD);
   motor4.setSpeed(255);
 }
 void Vdroite(){
@@ -33,9 +33,9 @@ void Vdroite(){
   motor1.setSpeed(255);
   motor2.run(BACKWARD);
   motor2.setSpeed(255);
-  motor3.run(FORWARD);
+  motor3.run(BACKWARD);
   motor3.setSpeed(255);
-  motor4.run(BACKWARD);
+  motor4.run(FORWARD);
   motor4.setSpeed(255);
 }
 void arreter(){
