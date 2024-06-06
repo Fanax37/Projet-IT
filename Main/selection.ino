@@ -53,13 +53,12 @@ void selection(){
           waitForValidation = false;
           delay(5000);
           lcd.clear();
-          parcours();
+          
         } else {
           lcd.clear();
           lcd.print("Pas de demande");
           lcd.setCursor(0, 1);
           lcd.print("a valider");
-          arreter();
         } 
         break;  
 

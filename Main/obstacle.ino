@@ -27,29 +27,8 @@ void obstacle() {
       lcd.println(" cm        ");
       buzzer();
       delay(500);
-      lcd.clear();  
-
-     } else if(distance <= 60) {
-      //écran
-      Serial.print("distance = ");
-      Serial.print(distance);
-      Serial.println(" cm");
-      lcd.print("d = ");
-      lcd.print(distance);
-      lcd.println(" cm        ");
-      delay(500);
-      lcd.clear();
-       
-     } else if(distance <= 120) {
-      //écran
-      Serial.print("distance = ");
-      Serial.print(distance);
-      Serial.println(" cm");
-      lcd.print("d = ");
-      lcd.print(distance);
-      lcd.println(" cm        ");
-      delay(500);
-      lcd.clear();
+      lcd.clear(); 
+      arreter(); 
       
    }else{
       Serial.print("distance = ");

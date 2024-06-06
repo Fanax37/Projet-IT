@@ -30,7 +30,7 @@ int ligneDroite = 46;
 int CapteurChambre1 = 42;
 int CapteurChambre2 = 43;
 
-int speakerPin = 52; // pin a changer
+int speakerPin = 52; 
 
 
 const int colorR = 255;
@@ -88,13 +88,14 @@ void setup() {
 }
 
 void loop() {
-  arreter();
+  data();
   obstacle();
   selection();
   delay(200);
   if (waitForValidation == true) {
     delay (5000);
     lcd.clear();
+    
   }else{
     parcours(); 
     obstacle();
