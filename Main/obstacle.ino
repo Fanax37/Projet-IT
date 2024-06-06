@@ -1,5 +1,5 @@
 void obstacle() {
- // Envoie de l'onde
+  delay(200);
   pinMode(triggerPin, OUTPUT);
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
@@ -15,7 +15,7 @@ void obstacle() {
     if (distance >= 400 || distance <= 0){
       Serial.println("Hors plage");
       lcd.println("hors plage      ");
-      delay(500);
+      
       lcd.clear();
     } else if (distance <=30){
       //écran
@@ -26,7 +26,7 @@ void obstacle() {
       lcd.print(distance);
       lcd.println(" cm        ");
       buzzer();
-      delay(500);
+      
       lcd.clear(); 
       arreter(); 
       
@@ -37,7 +37,7 @@ void obstacle() {
       lcd.print("d = ");
       lcd.print(distance);
       lcd.println(" cm        ");
-      delay(500);
+      
       lcd.clear();
      
    }

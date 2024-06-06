@@ -53,8 +53,11 @@ void selection(){
           waitForValidation = false;
           delay(5000);
           lcd.clear();
+          parcours();
+          obstacle();
           
         } else {
+          digitalWrite(triggerPin, LOW);
           lcd.clear();
           lcd.print("Pas de demande");
           lcd.setCursor(0, 1);

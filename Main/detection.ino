@@ -8,5 +8,6 @@ void detection(int i, int z){
     avancer();
     delay(300);// ca va faire bugger le reste donc trouver un moyen mais pas la prioritée
     arreter();
+    //mettre un retour dans la chambre
  }
 }

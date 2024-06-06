@@ -65,7 +65,8 @@ void setup() {
    pinMode(ligneDroite,INPUT);  
    pinMode(ligneGauche,INPUT);
   
-   
+   pinMode(triggerPin, OUTPUT);
+
    Serial.begin (9600);
    
    TRANS_SERIAL.begin(9600); 
@@ -84,23 +85,14 @@ void setup() {
     pinMode(47, INPUT);  
     pinMode(46, INPUT);  
     // compteur chambre
+    digitalWrite(triggerPin, LOW);//a voir si ca marche 
    Serial.println("== Debut du programme ==");
 }
 
 void loop() {
-  data();
-  obstacle();
+
   selection();
-  delay(200);
-  if (waitForValidation == true) {
-    delay (5000);
-    lcd.clear();
-    
-  }else{
-    parcours(); 
-    obstacle();
-    
-  }
+  data();
   servo.write(0);
  }
   
